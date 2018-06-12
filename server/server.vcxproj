@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6C09A0F1-B099-4B8E-BC83-346039DF75D5}</ProjectGuid>
+    <RootNamespace>server</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(SolutionDir)/shared/include;$(SolutionDir)/mobs</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shared.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(SolutionDir)/shared/include;$(SolutionDir)/mobs</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shared.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(SolutionDir)/shared/include;$(SolutionDir)/mobs</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shared.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(ProjectDir)/include;$(SolutionDir)/shared/include;$(SolutionDir)/mobs</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;shared.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\ACore.cpp" />
+    <ClCompile Include="src\ArgumentParser.cpp" />
+    <ClCompile Include="src\Converter.cpp" />
+    <ClCompile Include="src\Core.cpp" />
+    <ClCompile Include="src\GameUpdater.cpp" />
+    <ClCompile Include="src\game\AEntity.cpp" />
+    <ClCompile Include="src\game\component\ACollidable.cpp" />
+    <ClCompile Include="src\game\component\AIComponent.cpp" />
+    <ClCompile Include="src\game\component\Damage.cpp" />
+    <ClCompile Include="src\game\component\Direction.cpp" />
+    <ClCompile Include="src\game\component\EnemyCollidable.cpp" />
+    <ClCompile Include="src\game\component\EnemyProjectileCollidable.cpp" />
+    <ClCompile Include="src\game\component\Fire.cpp" />
+    <ClCompile Include="src\game\component\Health.cpp" />
+    <ClCompile Include="src\game\component\PlayerCollidable.cpp" />
+    <ClCompile Include="src\game\component\PlayerProjectileCollidable.cpp" />
+    <ClCompile Include="src\game\component\Removable.cpp" />
+    <ClCompile Include="src\game\component\RigidBody.cpp" />
+    <ClCompile Include="src\game\component\Sprite.cpp" />
+    <ClCompile Include="src\game\component\Velocity.cpp" />
+    <ClCompile Include="src\game\Entity.cpp" />
+    <ClCompile Include="src\game\component\Position.cpp" />
+    <ClCompile Include="src\game\EntityFactory.cpp" />
+    <ClCompile Include="src\game\map\MapPool.cpp" />
+    <ClCompile Include="src\game\MobSpawner.cpp" />
+    <ClCompile Include="src\game\Player.cpp" />
+    <ClCompile Include="src\game\system\AISystem.cpp" />
+    <ClCompile Include="src\game\system\ASystem.cpp" />
+    <ClCompile Include="src\game\system\ColllisionSystem.cpp" />
+    <ClCompile Include="src\game\system\FireSystem.cpp" />
+    <ClCompile Include="src\game\system\HealthSystem.cpp" />
+    <ClCompile Include="src\game\system\MovementSystem.cpp" />
+    <ClCompile Include="src\game\system\RemovingSystem.cpp" />
+    <ClCompile Include="src\game\system\SystemManager.cpp" />
+    <ClCompile Include="src\game\World.cpp" />
+    <ClCompile Include="src\json\JSONArray.cpp" />
+    <ClCompile Include="src\json\JSONObject.cpp" />
+    <ClCompile Include="src\json\JSONParser.cpp" />
+    <ClCompile Include="src\json\Parser.cpp" />
+    <ClCompile Include="src\loader\ADllLoader.cpp" />
+    <ClCompile Include="src\loader\DllLoader.cpp" />
+    <ClCompile Include="src\loader\LoadManager.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\net\ASocket.cpp" />
+    <ClCompile Include="src\net\ATCPSocket.cpp" />
+    <ClCompile Include="src\net\AUDPSocket.cpp" />
+    <ClCompile Include="src\net\NetClient.cpp" />
+    <ClCompile Include="src\net\Poll.cpp" />
+    <ClCompile Include="src\net\SocketAddress.cpp" />
+    <ClCompile Include="src\net\TCPClientSocket.cpp" />
+    <ClCompile Include="src\net\TCPServer.cpp" />
+    <ClCompile Include="src\net\TCPServerSocket.cpp" />
+    <ClCompile Include="src\net\UDPSocket.cpp" />
+    <ClCompile Include="src\packet\PacketProcesser.cpp" />
+    <ClCompile Include="src\packet\PacketReceiver.cpp" />
+    <ClCompile Include="src\packet\PacketSender.cpp" />
+    <ClCompile Include="src\packet\protocol\EntityPacket.cpp" />
+    <ClCompile Include="src\packet\protocol\HelloPacket.cpp" />
+    <ClCompile Include="src\packet\protocol\MapPacket.cpp" />
+    <ClCompile Include="src\packet\protocol\PortPacket.cpp" />
+    <ClCompile Include="src\packet\protocol\ReadyPacket.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\ACore.hpp" />
+    <ClInclude Include="include\ArgumentParser.hpp" />
+    <ClInclude Include="include\Converter.hpp" />
+    <ClInclude Include="include\Core.hpp" />
+    <ClInclude Include="include\exceptions\ArgumentParserException.hpp" />
+    <ClInclude Include="include\exceptions\LoaderException.hpp" />
+    <ClInclude Include="include\exceptions\NetClientException.hpp" />
+    <ClInclude Include="include\exceptions\SigIntException.hpp" />
+    <ClInclude Include="include\exceptions\SocketException.hpp" />
+    <ClInclude Include="include\exceptions\TCPServerException.hpp" />
+    <ClInclude Include="include\GameUpdater.hpp" />
+    <ClInclude Include="include\game\AEntity.hpp" />
+    <ClInclude Include="include\game\component\ACollidable.hpp" />
+    <ClInclude Include="include\game\component\AIComponent.hpp" />
+    <ClInclude Include="include\game\component\Damage.hpp" />
+    <ClInclude Include="include\game\component\Direction.hpp" />
+    <ClInclude Include="include\game\component\EnemyCollidable.hpp" />
+    <ClInclude Include="include\game\component\EnemyProjectileCollidable.hpp" />
+    <ClInclude Include="include\game\component\Fire.hpp" />
+    <ClInclude Include="include\game\component\Health.hpp" />
+    <ClInclude Include="include\game\component\PlayerCollidable.hpp" />
+    <ClInclude Include="include\game\component\PlayerProjectileCollidable.hpp" />
+    <ClInclude Include="include\game\component\Removable.hpp" />
+    <ClInclude Include="include\game\component\RigidBody.hpp" />
+    <ClInclude Include="include\game\component\Sprite.hpp" />
+    <ClInclude Include="include\game\component\Velocity.hpp" />
+    <ClInclude Include="include\game\Entity.hpp" />
+    <ClInclude Include="include\game\component\Position.hpp" />
+    <ClInclude Include="include\game\component\IComponent.hpp" />
+    <ClInclude Include="include\game\EntityFactory.hpp" />
+    <ClInclude Include="include\game\GameLogic.hpp" />
+    <ClInclude Include="include\game\map\MapPool.hpp" />
+    <ClInclude Include="include\game\MobSpawner.hpp" />
+    <ClInclude Include="include\game\Player.hpp" />
+    <ClInclude Include="include\game\system\AISystem.hpp" />
+    <ClInclude Include="include\game\system\ASystem.hpp" />
+    <ClInclude Include="include\game\system\CollisionSystem.hpp" />
+    <ClInclude Include="include\game\system\FireSystem.hpp" />
+    <ClInclude Include="include\game\system\HealthSystem.hpp" />
+    <ClInclude Include="include\game\system\MovementSystem.hpp" />
+    <ClInclude Include="include\game\system\RemovingSystem.hpp" />
+    <ClInclude Include="include\game\system\SystemManager.hpp" />
+    <ClInclude Include="include\game\World.hpp" />
+    <ClInclude Include="include\json\JSONArray.hpp" />
+    <ClInclude Include="include\json\JSONException.hpp" />
+    <ClInclude Include="include\json\JSONObject.hpp" />
+    <ClInclude Include="include\json\JSONParser.hpp" />
+    <ClInclude Include="include\json\Parser.hpp" />
+    <ClInclude Include="include\loader\ADllLoader.hpp" />
+    <ClInclude Include="include\loader\ALoader.hpp" />
+    <ClInclude Include="include\loader\DllLoader.hpp" />
+    <ClInclude Include="include\loader\ILoader.hpp" />
+    <ClInclude Include="include\loader\LoadManager.hpp" />
+    <ClInclude Include="include\net\ANetClient.hpp" />
+    <ClInclude Include="include\net\ASocket.hpp" />
+    <ClInclude Include="include\net\ATCPSocket.hpp" />
+    <ClInclude Include="include\net\AUDPSocket.hpp" />
+    <ClInclude Include="include\net\ClientSocket.hpp" />
+    <ClInclude Include="include\net\ISocket.h" />
+    <ClInclude Include="include\net\NetClient.hpp" />
+    <ClInclude Include="include\net\Poll.hpp" />
+    <ClInclude Include="include\net\RingBuffer.hpp" />
+    <ClInclude Include="include\net\ServerSocket.hpp" />
+    <ClInclude Include="include\net\SocketAddress.hpp" />
+    <ClInclude Include="include\net\TCPClient.hpp" />
+    <ClInclude Include="include\net\TCPClientSocket.hpp" />
+    <ClInclude Include="include\net\TCPServer.hpp" />
+    <ClInclude Include="include\net\TCPServerSocket.hpp" />
+    <ClInclude Include="include\net\UDPSocket.hpp" />
+    <ClInclude Include="include\packet\PacketProcesser.hpp" />
+    <ClInclude Include="include\packet\PacketReceiver.hpp" />
+    <ClInclude Include="include\packet\PacketSender.hpp" />
+    <ClInclude Include="include\packet\protocol\AProtocol.hpp" />
+    <ClInclude Include="include\packet\protocol\EntityPacket.hpp" />
+    <ClInclude Include="include\packet\protocol\HelloPacket.hpp" />
+    <ClInclude Include="include\packet\protocol\IProtocol.hpp" />
+    <ClInclude Include="include\packet\protocol\MapPacket.hpp" />
+    <ClInclude Include="include\packet\protocol\PortPacket.hpp" />
+    <ClInclude Include="include\packet\protocol\ReadyPacket.hpp" />
+    <ClInclude Include="include\Server.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,435 @@
+{
+    "Map":
+    {
+        "Name": "Default",
+        "Viewport": { "x": 400, "y": 310 },
+        "Chunks":
+        [
+            {
+                "Background": 0,
+                "Width": 1482,
+                "Type": "Space",
+                "Entities":
+                [
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 0, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 56, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 112, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 168, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 224, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 280, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 336, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 392, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 448, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 504, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 560, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 0,
+                        "Position": { "x": 616, "y": 264 },
+                        "Size": { "x": 56, "y": 46 }
+                    },
+                    {
+                        "Sprite": 1,
+                        "Position": { "x": 672, "y": 283 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 728, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 784, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 840, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 1,
+                        "Position": { "x": 896, "y": 283 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 952, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 1008, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 14,
+                        "Position": { "x": 1064, "y": 0 },
+                        "Size": { "x": 138, "y": 125 }
+                    },
+                    {
+                        "Sprite": 15,
+                        "Position": { "x": 1064, "y": 185 },
+                        "Size": { "x": 138, "y": 125 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 1202, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 1258, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 1314, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 1,
+                        "Position": { "x": 1370, "y": 283 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 0,
+                        "Position": { "x": 1426, "y": 264 },
+                        "Size": { "x": 56, "y": 46 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 1202, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 1258, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 1314, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 1370, "y": 0 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 4,
+                        "Position": { "x": 1426, "y": 0 },
+                        "Size": { "x": 56, "y": 46 }
+                    }
+                ]
+            },
+
+            {
+                "Background": 1,
+                "Width": 1152,
+                "Type": "Ship",
+                "Entities":
+                [
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 0, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 56, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 112, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 168, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 0, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 56, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 112, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 168, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 11,
+                        "Position": { "x": 224, "y": 276 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 12,
+                        "Position": { "x": 280, "y": 276 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 13,
+                        "Position": { "x": 336, "y": 276 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 8,
+                        "Position": { "x": 224, "y": 0 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 9,
+                        "Position": { "x": 280, "y": 0 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 10,
+                        "Position": { "x": 336, "y": 0 },
+                        "Size": { "x": 56, "y": 34 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 392, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 448, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 392, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 448, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 0,
+                        "Position": { "x": 504, "y": 264 },
+                        "Size": { "x": 56, "y": 46 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 504, "y": 0 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 560, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 616, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 3,
+                        "Position": { "x": 672, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 560, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 616, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 7,
+                        "Position": { "x": 672, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 728, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 1,
+                        "Position": { "x": 728, "y": 283 },
+                        "Size": { "x": 56, "y": 27 }
+                    },
+                    {
+                        "Sprite": 0,
+                        "Position": { "x": 784, "y": 264 },
+                        "Size": { "x": 56, "y": 46 }
+                    },
+                    {
+                        "Sprite": 4,
+                        "Position": { "x": 784, "y": 0 },
+                        "Size": { "x": 56, "y": 46 }
+                    },
+                    {
+                        "Sprite": 2,
+                        "Position": { "x": 840, "y": 300 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 840, "y": 0 },
+                        "Size": { "x": 56, "y": 10 }
+                    },
+                    {
+                        "Sprite": 16,
+                        "Position": { "x": 896, "y": 0 },
+                        "Size": { "x": 237, "y": 125 }
+                    },
+                    {
+                        "Sprite": 17,
+                        "Position": { "x": 896, "y": 185 },
+                        "Size": { "x": 237, "y": 125 }
+                    }
+                ]
+            },
+
+            {
+                "Background": 2,
+                "Width": 1440,
+                "Type": "Mine",
+                "Entities":
+                [
+                    {
+                        "Sprite": 4,
+                        "Position": { "x": 0, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 32, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 64, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 96, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 128, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 160, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 192, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 224, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 256, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 4,
+                        "Position": { "x": 320, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 5,
+                        "Position": { "x": 352, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    },
+                    {
+                        "Sprite": 6,
+                        "Position": { "x": 384, "y": 302 },
+                        "Size": { "x": 32, "y": 8 }
+                    }
+                ]
+            },
+
+            {
+                "Background": 0,
+                "Width": 1000,
+                "Type": "Space",
+                "Entities":
+                    [
+                        {
+                            "Sprite": 0,
+                            "Position": { "x": 0, "y": 264 },
+                            "Size": { "x": 56, "y": 46 }
+                        }
+                    ]
+            }
+        ]
+    }
+}

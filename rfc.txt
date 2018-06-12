@@ -1,0 +1,580 @@
+
+
+
+
+
+
+R-Type                                                        A. Vasseur
+Request for Comments: 0                                    EPITECH Lille
+Obsoletes: None                                            November 2016
+Category: Network Protocol
+
+
+                  R-Type video game - Network Protocol
+
+Abstract
+
+   This document describes how the network protocol of the R-Type video
+   game is mapped onto the network through single Transmission Control
+   Protocol (TCP) and User Datagram Protocol (UDP).  This mapping
+   requires a simple client and server architecture to be implemented.
+
+Status of This Memo
+
+   This document specifies how to communicate between the server and
+   the client over the network.  It is intended to be read only by the
+   local working group and can be shared with other groups in order to
+   ensure the compatibility between different implementations.
+   Distribution of this memo is unlimited.
+
+Copyright Notice
+
+   Copyright (c) 2016 EPITECH Lille and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to an EPITECH Lille academical project
+   called R-Type during the third year.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 1]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+Table of Contents
+
+   1. Introduction ....................................................2
+      1.1. Conventions Used in This Document ..........................2
+   2. Session Management ..............................................2
+   3. Message Exchange ................................................3
+   4. Data Unit Format ................................................5
+   5. Messages List ...................................................5
+      5.1. Handshake Messages .........................................5
+      5.2. Ingame Messages ............................................6
+   6. Transport Considerations ........................................6
+   7. Internationalization Considerations .............................7
+   8. IANA Considerations .............................................7
+   9. Security Considerations .........................................7
+   10. Acknowledgements ...............................................8
+   11. References .....................................................8
+      11.1. Normative References ......................................8
+      11.2. Informative References ....................................9
+
+1.  Introduction
+
+   This document describes how the R-Type video game network Protocol
+   is mapped onto client-server TCP and UDP connections.  TCP is
+   described in [RFC0793].  UDP is described in [RFC0768].
+
+1.1.  Conventions Used in This Document
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in [RFC2119].
+
+2.  Session Management
+
+   Mapping alive session management facilities onto the TCP service is
+   straightforward.  An alive session first requires creation of a TCP
+   connection between two peers, one that initiates the connection
+   request and one that responds to the connection request.  The
+   initiating peer is called the "client", and the responding peer is
+   called the "server".  An R-TYPE server MUST listen for TCP connection
+   requests on a standard TCP port assigned by the user.
+
+   The client MUST issue an active OPEN call, specifying the TCP port
+   number on which the server is listening for R-TYPE connection
+   attempts.
+
+   The client MUST bind a random UDP port to communicate with server
+   over a connected UDP socket.
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 2]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+   An alive session is normally ended by the client closing the TCP
+   socket and unbinding its UDP socket.  A server receiving a closing
+   socket notification MUST end the session and close the TCP connection
+   with a CLOSE call in order to clean up all memory used.
+
+3.  Message Exchange
+
+   All R-TYPE messages ARE initiated by the R-TYPE server during an
+   alive session.  Messages MUST NOT be answered in order to keed load
+   and server capabilities balanced.
+
+   All R-TYPE commands ARE initiated by the R-TYPE client during an
+   alive session in order to respond to an user event.  During an
+   exchange, the response MUST be sent on the same TCP or UDP
+   connection that carried the command.
+
+   A client MUST NOT distribute commands from a single alive session
+   over multiple TCP connections. A client MUST NOT establish TCP
+   connections with other client. A server MUST accept multiple TCP
+   connections and SHOULD limit to a maximum number of TCP connections
+   based on server capabilities and operational load.
+
+   R-TYPE describes client-server interaction as a passive displayer
+   client where the server refresh all data informations constantly
+   and where clients requests commands to the server.  The response
+   are new informations data exchanged through current alive socket.
+   A client might be able to realize a slight performance gain by
+   never waiting for server response.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 3]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+                       Client                  Server
+		                     TCP
+		  +=====================================+
+                  |                                     |
+                  |                Connect              |
+                  | >>------------------------------->> |
+                  |                                     |
+                  |           Send HelloMessage         |
+                  | >>------------------------------->> |
+                  |                                     |
+                  |           Send HelloMessage         |
+                  | <<-------------------------------<< |
+                  |                                     |
+                  |            Send MapMessage          |
+                  | >>------------------------------->> |
+                  |                                     |
+                  |            Send MapMessage          |
+                  | <<-------------------------------<< |
+                  |                                     |
+                  |            Send PortMessage         |
+                  | >>------------------------------->> |
+                  |                                     |
+                  |            Send PortMessage         |
+                  | <<-------------------------------<< |
+                  |                                     |
+                  |            Send ReadyMessage        |
+                  | >>------------------------------->> |
+                  |                                     |
+                  |            Send ReadyMessage        |
+                  | <<-------------------------------<< |
+                  |                                     |
+                  |            Send EndMessage          |
+                  | <<-------------------------------<< |
+                  |                                     |
+		  .......................................
+
+
+				     UDP
+		  +=====================================+
+		  |					|
+		  |          Send EntityMessage         |
+		  | <<-------------------------------<< |
+                  |          Send EntityMessage         |
+                  | >>------------------------------->> |
+		  |                                     |
+                  |           Send SpawnMessage         |
+                  | <<-------------------------------<< |
+                  |                                     |
+		  .......................................
+
+            Figure 1: TCP & UDP Client-Server Message Exchange
+
+
+R-Type                     Network Protocol                     [Page 4]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+4.  Data Unit Format
+
+   The message data unit contains two fields: a 16-bit to 40-bit header
+   that describes the message unique identifier, the total length of
+   the data unit; and the data instance.  The length of the data
+   instance is determined by N octets defined by the 15th and 16th bits
+   into total header.  A receiver must successfully read this number of
+   octets to retrieve the complete data instance before processing the
+   message.
+
+   Message Header Unit Format :
+
+                    0               1
+                    0 1 2 3 4 5 6 7 0 1 2 3 4 5 6 7
+                    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                    | Message unique identifier | N |
+                    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+                    +-+-+-+-+-+-+-+//-+-+-+-+-+-+-+-+
+		    |    Total content data lenght  |
+		    +-+-+-+-+-+-+-+//-+-+-+-+-+-+-+-+
+		    +-+-+-+-+-+-+-+//-+-+-+-+-+-+-+-+
+		    |         Content Data          |
+		    +-+-+-+-+-+-+-+//-+-+-+-+-+-+-+-+
+
+   Message unique identifier: The unique identifier determining the
+   command and content data format.
+
+   Total content data lenght (0 to 24 bits): The total length of the
+   message content data unit measured in byte (little endian order).
+
+   Content data: The message content unit carried, serialized and
+   formatted according to his unique identifier.
+
+5.  Messages List
+
+   The unique message identifier carried by the data header provides
+   a system to recognize and specialize the data content serialisation.
+
+5.1.  Handshake Messages
+
+   The following commands specify access control identifiers.
+   They are exchanged over the client-server TCP connection
+   (command ids are shown in parentheses).
+
+   -   HelloMessage (0), composed by a 16-bits version number.
+
+   -   MapMessage (1), containing the map data serialized.
+
+   -   PortMessage (2), containing a 16-bits port number.
+
+   -   ReadyMessage (3), containing a boolean.
+
+
+R-Type                     Network Protocol                     [Page 5]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+5.2.  Ingame Messages
+
+  The following commands provides a real time synchronization between
+  all clients through UDP connections with the server
+  (command ids are shown in parentheses).
+
+  -   EntityMessage (4) is composed by an unique entity
+      identifier written on 64-bits and serialized data up to
+      16 entities.  The client MUST predict locally future position
+      according to his last refresh time.
+
+  -   SpawnMessage (5) containing the unique entity identifier
+      (64-bits).  Notify the client that the player respawn after his
+      death.  After his respawn, he has three seconds of immortality.
+
+  -   EndMessage (6) sent by the server at the end of the game.
+      There are two possibilities : a game over or a victory defined
+      by a boolean contained in the packet message.
+
+6.  Transport Considerations
+
+   Section 2 of the R-TYPE core protocol specification [RFC8027]
+   describes considerations to be addressed by protocol transport
+   mappings.  This document addresses each of the considerations using a
+   combination of features described in this document and features
+   provided by TCP as follows:
+
+   -  TCP includes features to provide reliability, flow control,
+      ordered delivery, and congestion control.  Section 1.5 of RFC 793
+      [RFC0793] describes these features in detail; congestion control
+      principles are described further in RFC 2581 [RFC2581] and RFC
+      2914 [RFC2914].  TCP is a connection-oriented protocol, and
+      Section 2 of this document describes how R-TYPE sessions are
+      mapped to TCP connections.
+
+   -  Sections 2 and 3 of this document describe how the stateful nature
+      of the R-TYPE protocol is preserved through managed sessions and
+      controlled message exchanges.
+
+   -  Section 4 of this document describes features to frame data units
+      by explicitly specifying the number of octets used to represent a
+      data unit.
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 6]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+   This document is using a combination of features provided by UDP as
+   follows:
+
+   -  All UDP messages needs to be repeatedly sent.  Messages designed
+      with acknowledgment of receipt MUST NOT be sent anymore after
+      response reception.
+
+   -  UDP provides a procedure for application programs to send
+      messages to other programs with a minimum of protocol mechanism.
+      Section 1 of RFC 768 [RFC0768] describes how UDP delivers a
+      simple and fast network communication system.
+
+   -  UDP connections allows to refresh constantly new informations
+      like entities positions and fast users events.
+
+7.  Internationalization Considerations
+
+   This document does not introduce or present any internationalization
+   or localization issues.
+
+8.  IANA Considerations
+
+   User port number 4242 (which is used for development and test
+   purposes) can be reclaimed by the IANA.
+
+9.  Security Considerations
+
+   R-TYPE protocol as-is provides only simple client connection
+   services using identifiers and plain text data.  A passive attack
+   is sufficient to recover client identifiers and contents,
+   allowing trivial command forgery.  Protection against most other
+   common attacks MUST be provided by other layered protocols.
+
+   When layered over TCP, the Transport Layer Security (TLS) Protocol
+   version 1.0 [RFC2246] or its successors (such as TLS 1.2 [RFC5246]),
+   using the latest version supported by both parties, SHOULD be used
+   to provide integrity, confidentiality, and mutual strong
+   client-server communication.  Implementations of TLS often contain
+   a weak cryptographic mode that SHOULD NOT be used to protect
+   messages.  Clients and servers desiring high security SHOULD
+   instead use TLS with cryptographic algorithms that are less
+   susceptible to be compromised.
+
+   Exchanges using the TLS Handshake Protocol confirms the identity
+   of the client and server machines.  Acceptable certificate
+   identities MUST be negotiated between client operators and server
+   operators using an out-of-band mechanism.  Presented certificate
+   identities MUST match negotiated identities before R-TYPE service
+   is granted.
+
+
+
+
+R-Type                     Network Protocol                     [Page 7]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+   R-TYPE TCP servers are vulnerable to common TCP denial-of-service
+   attacks including TCP SYN flooding.  Servers SHOULD take steps to
+   minimize the impact of a denial-of-service attack using combinations
+   of easily implemented solutions, such as deployment of firewall
+   technology and border router filters to restrict inbound server
+   access to known, trusted clients.
+
+10.  Acknowledgements
+
+   RFC 8027 is a product of the R-TYPE working group, which suggested
+   improvements and provided many invaluable comments. This document is
+   an individual submission, based on the work done in other academics
+   projects.
+
+   Specific suggestions that have been incorporated into this document
+   were provided by Tom Czayka, Corentin Descamps, Quentin Guerin,
+   Louis Pain, Sergii Fisun and Adrien Vasseur.
+
+11.  References
+
+11.1.  Normative References
+
+   [RFC0768]  Postel, J., "User Datagram Protocol", STD 6, RFC 768,
+              August 1980
+ 
+   [RFC0791]  Postel, J., "Internet Protocol", STD 5, RFC 791,
+              September 1981.
+
+   [RFC0793]  Postel, J., "Transmission Control Protocol", STD 7,
+              RFC 793, September 1981.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119, March 1997.
+
+   [RFC2246]  Dierks, T. and C. Allen, "The TLS Protocol Version 1.0",
+              RFC 2246, January 1999.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 8]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+11.2.  Informative References
+
+   [RFC2581]  Allman, M., Paxson, V., and W. Stevens, "TCP Congestion
+              Control", RFC 2581, April 1999.
+
+   [RFC2914]  Floyd, S., "Congestion Control Principles", BCP 41,
+              RFC 2914, September 2000.
+
+   [RFC4346]  Dierks, T. and E. Rescorla, "The Transport Layer Security
+              (TLS) Protocol Version 1.1", RFC 4346, April 2006.
+
+   [RFC5246]  Dierks, T. and E. Rescorla, "The Transport Layer Security
+              (TLS) Protocol Version 1.2", RFC 5246, August 2008.
+
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, May 2008.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                     [Page 9]
+
+RFC 8027        R-Type Video Game - Network Protocol       November 2016
+
+
+Author's Informations
+
+   Adrien VASSEUR
+   EPITECH Lille
+   Promotion 2019
+
+   EMail: adrien.vasseur@epitech.eu
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+R-Type                     Network Protocol                    [Page 10]
+
